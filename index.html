@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <div class="search">
+        <input type="text" placeholder="Search For" id="search">
+        <input type="submit" value="Search" id="button">
+    </div>
+
+    <div class="window">
+        <div class="image">
+            <img src="https://avatars.githubusercontent.com/u/111438242?v=4" alt="">
+        </div>
+        <div class="profile">
+            <div class="main">
+                <div class="s1">
+                    <h1 id="username">seifELDEEN ALI</h1>
+                    <span id="name">Sefoo333</span>
+                </div>
+                <span id="createdtime">Joined 2024</span>
+            </div>
+
+            <div class="description">
+                <p id="bio">The Profile does not have a bio</p>
+            </div>
+
+            <div class="results">
+                <div class="card">
+                    <h1>repos</h1>
+                    <span id="card">0</span>
+                </div>
+                <div class="card">
+                    <h1>Followers</h1>
+                    <span id="card">200</span>
+                </div>
+                <div class="card">
+                    <h1>Following</h1>
+                    <span id="card">0</span>
+                </div>
+            </div>
+
+            <div class="links">
+                <div class="location">
+                    <ion-icon name="location"></ion-icon>
+                    <span id="link">Egypt</span>
+                </div>
+                <div class="twitter">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                    <span id="link">None</span>
+                </div>
+                <div class="company">
+                    <ion-icon name="briefcase"></ion-icon>
+                    <span id="link">None</span>
+                </div>
+                <div class="url">
+                    <ion-icon name="link"></ion-icon>
+                    <span id="link">none</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        let inp = document.querySelector("#search");
+        let btn = document.querySelector("#button");
+        let cards = document.querySelectorAll("#card");
+        let links = document.querySelectorAll("#link");
+
+        btn.addEventListener("click", function () {
+            fetch(`https://api.github.com/users/${inp.value}`).then((res) => res.json()).then((data) => {
+                document.querySelector("img").src = data.avatar_url;
+                document.getElementById("username").innerHTML = data.name;
+                document.getElementById("name").innerHTML = data.login;
+                document.getElementById("bio").innerHTML = data.bio === null || data.bio === "" ? "The Profile has No bio" : data.bio;
+                document.getElementById("createdtime").innerHTML = `Joined ${data.created_at.slice(0, 10)}`
+
+                cards[0].innerHTML = data.public_repos;
+                cards[1].innerHTML = data.followers;
+                cards[2].innerHTML = data.following;
+
+                links[0].innerHTML = data.location; data.location === null || data.location === "" ? "None" : data.location;
+                links[1].innerHTML = data.twitter_username === null || data.twitter_username === "" ? "None" : data.twitter_username;
+                links[3].innerHTML = data.blog === null || data.blog === "" ? "None" : data.blog;
+                links[2].innerHTML = data.company === null || data.company === "" ? "None" : data.company;
+
+
+            })
+        })
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

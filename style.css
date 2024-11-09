@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: #141c30;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: "Inconsolata", monospace;
+    flex-direction: column;
+}
+
+.search {
+    padding: 20px;
+    background-color: #1f2a48;
+    border-radius: 15px;
+    padding-left: 10px;
+    display: flex;
+
+
+    & input:first-child {
+        width: 350px;
+        padding: 15px 10px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        font-size: 18px;
+        color: white;
+    }
+
+    & input:last-child {
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: none;
+        background-color: #0079fe;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+}
+
+.window {
+    background-color: #1f2a48;
+    width: 650px;
+    margin-top: 30px;
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    color: white;
+    gap: 25px;
+
+    & .image {
+        text-align: end;
+        flex-basis: 25%;
+
+        & img {
+            width: 100%;
+            border-radius: 50%;
+        }
+    }
+
+    & .profile {
+        width: 100%;
+
+        & .main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            & .s1 {
+                margin: 10px 0;
+
+                & h1 {
+                    margin-bottom: 8px;
+                }
+
+                & span {
+                    color: #0079fe;
+                }
+            }
+        }
+
+        &.description {
+            & p {
+                color: #ddd;
+            }
+        }
+
+        & .results {
+            display: flex;
+            justify-content: space-between;
+            margin: 25px 0;
+            font-size: 13px;
+            text-align: center;
+            background-color: #0f1421;
+            padding: 20px;
+            border-radius: 15px;
+
+            & .card {
+                & h1 {
+                    font-size: 15px;
+                    font-weight: 100;
+                }
+
+                & span {
+                    font-size: 24px;
+                }
+            }
+        }
+
+        & .links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+
+            & div {
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                gap: 15px;
+
+                & span {
+                    text-wrap-mode: nowrap;
+                }
+            }
+        }
+    }
+}
