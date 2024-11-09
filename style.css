@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: monospace;
+    background-color: #141c30;
+    flex-direction: column;
+}
+
+
+.search {
+    padding: 20px;
+    background-color: #1f2a48;
+    border-radius: 15px;
+    display: flex;
+
+
+    & input:first-child {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        width: 300px;
+        font-size: 20px;
+        color: white;
+    }
+
+    & input:last-child {
+        background-color: #0079fe;
+        padding: 15px 20px;
+        border-radius: 10px;
+        outline: none;
+        border: none;
+        font-size: 18px;
+        color: white;
+        cursor: pointer;
+    }
+}
+
+
+
+.window {
+    margin-top: 20px;
+    width: 650px;
+    background-color: #1f2a48;
+    display: flex;
+    padding: 20px;
+    border-radius: 15px;
+    gap: 20px;
+
+    & .image {
+        flex-basis: 25%;
+
+        & img {
+            width: 100%;
+            border-radius: 50%;
+        }
+    }
+
+    & .profile {
+        color: white;
+        width: 100%;
+
+        & .main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            & .s1 {
+                font-size: 20px;
+                margin: 10px 0;
+
+                & span {
+                    font-size: 15px;
+                    color: #0079fe;
+                }
+            }
+        }
+
+        & .description {
+            & p {
+                margin: 10px 0;
+                font-size: 18px;
+            }
+        }
+
+        & .results {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            padding: 20px;
+            background-color: #141a29;
+            border-radius: 15px;
+            margin: 15px 0;
+
+            & .card {
+                & h2 {
+                    font-size: 15px;
+                    font-weight: 100;
+                }
+
+                & span {
+                    font-size: 25px;
+                }
+            }
+        }
+
+        & .links {
+            margin-top: 10px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+
+            & .link {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                font-size: 17px;
+
+
+            }
+        }
+
+    }
+}
